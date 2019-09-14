@@ -1,10 +1,12 @@
 package com.bomibear.taskmaster.Controller;
 
 import com.bomibear.taskmaster.Model.History;
+import com.bomibear.taskmaster.Model.S3Client;
 import com.bomibear.taskmaster.Model.Task;
 import com.bomibear.taskmaster.Model.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -15,6 +17,10 @@ public class TaskController {
 
     @Autowired
     TaskRepository taskRepository;
+
+    private S3Client s3Client;
+    @Autowired
+    TaskController(S3Client s3Client) {this.s3Client = s3Client;}
 
     @GetMapping("/tasks")
     public List<Task> getTasks(){
@@ -85,5 +91,24 @@ public class TaskController {
         taskRepository.save(task);
         return task;
     }
+
+    @PostMapping("tasks/{id}/images")
+    public Task addImage(
+            @PathVariable String id,
+            @RequestPart(value = "file") MultipartFile file){
+        String pic = this.s3Client.uploadFile(file);
+        Task task = taskRepository.findById(id).get();
+        task.setPic(pic);
+        taskRepository.save(task);
+
+        return task;
+    }
+
+    @GetMapping("tasks/{id}")
+    public Task getImage(@PathVariable String id){
+        Task task = taskRepository.findById(id).get();
+        return task;
+    }
+
 }
 
