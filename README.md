@@ -17,10 +17,15 @@ Then, refresh ```http://localhost:5000/api/v1/tasks``` to see the tasks
 ## End Points
 
 ```/api/v1/tasks``` get request that displays a list of tasks, its id, title, description, and status
+
 ```/api/v1/tasks/{name}/tasks``` get request that displays tasks for an assignee
+
 ```/api/v1/tasks/{id}/state``` post request that will update the status of a status
+
 ```/api/v1/tasks/{id}/assign/{assignee}``` put request to update a task to an assignee
+
 ```/api/v1/tasks/{id}/images``` post request to upload an image for a task
+
 ```/api/v1/tasks/{id}``` get request to dispaly info for a task along with it's image url, if there is one
 
 ## Deployed
