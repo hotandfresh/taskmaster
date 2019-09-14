@@ -35,6 +35,7 @@ public class TaskController {
             newTask.addToHistory(history);
         } else {
             newTask.setAssignee(task.getAssignee());
+            newTask.setStatus("assigned");
             History history = new History("Task was created and assigned to " + task.getAssignee());
             newTask.addToHistory(history);
         }
