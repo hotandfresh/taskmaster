@@ -15,6 +15,8 @@ public class Task {
     private String description;
     private String status;
     private String assignee;
+    private String pic;
+
     private ArrayList<History> history;
 
     public Task(){}
@@ -90,4 +92,13 @@ public class Task {
     }
 
     public void addToHistory(History history){ this.history.add(history);}
+
+    @DynamoDBAttribute
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
 }
