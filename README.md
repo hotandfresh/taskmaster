@@ -1,7 +1,7 @@
 # Taskmaster
 
 ## Overview
-This is a backend application that displays tasks, its id, title, description, and status.  The application utilizes a noSQL db and is hosted on with AWS elastic beanstalk.
+This is a backend application that displays tasks, its id, title, description, and status.  The application utilizes a Dynamo db and is hosted on with AWS elastic beanstalk.
 
 ## How to Run The Application Locally
 
@@ -16,7 +16,12 @@ Then, refresh ```http://localhost:5000/api/v1/tasks``` to see the tasks
 
 ## End Points
 
-```/api/v1/tasks``` displays a list of tasks, its id, title, description, and status.
+```/api/v1/tasks``` get request that displays a list of tasks, its id, title, description, and status
+```/api/v1/tasks/{name}/tasks``` get request that displays tasks for an assignee
+```/api/v1/tasks/{id}/state``` post request that will update the status of a status
+```/api/v1/tasks/{id}/assign/{assignee}``` put request to update a task to an assignee
+```/api/v1/tasks/{id}/images``` post request to upload an image for a task
+```/api/v1/tasks/{id}``` get request to dispaly info for a task along with it's image url, if there is one
 
 ## Deployed
 [demo](http://dev-env.ipm3pei5qu.us-west-2.elasticbeanstalk.com/api/v1/customers)
