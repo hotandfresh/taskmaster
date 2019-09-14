@@ -30,6 +30,7 @@ Open your API development tool, e.g. Postman, HTTPie, to make GET and POST reque
 
 ## Deployed
 [demo](http://dev-env.ipm3pei5qu.us-west-2.elasticbeanstalk.com/api/v1/customers)
+
 [taskmaster](http://taskmaster.6jwvzatvsi.us-west-2.elasticbeanstalk.com/api/v1/tasks)
 
 ## Acknowledgements
