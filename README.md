@@ -8,11 +8,11 @@ This is a backend application that displays tasks, its id, title, description, a
 Clone the repo here and save it in a directory of your choice. Open the application with an editor of your choice and hit the green arrow to run it. Navigate to http://localhost:5000/api/v1/tasks
 - If you don't have an editor, the application can be run from the root of the directory with the following terminal command: ```./gradlew run```
 
-In terminal, go up a directory and go into a directory named ```loader```. Run the following commands:
-- ```npm install```
-- ```node load.js 10``` to generate 10 random tasks
+The frontend application repo can be found [here](https://github.com/hotandfresh/taskmaster-frontend).
 
-Then, refresh ```http://localhost:5000/api/v1/tasks``` to see the tasks
+## How to Use This API
+
+Open your API development tool, e.g. Postman, HTTPie, to make GET and POST requests use ```http://localhost:5000```, if running locally, or use ```taskmaster.6jwvzatvsi.us-west-2.elasticbeanstalk.com``` with the following endpoints:
 
 ## End Points
 
