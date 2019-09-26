@@ -10,11 +10,11 @@ As of 9/26/19 an SnS system has been added to send text notifications.  The step
 Clone the repo here and save it in a directory of your choice. Open the application with an editor of your choice and hit the green arrow to run it. Navigate to http://localhost:5000/api/v1/tasks
 - If you don't have an editor, the application can be run from the root of the directory with the following terminal command: ```./gradlew run```
 
-In terminal, go up a directory and go into a directory named ```loader```. Run the following commands:
-- ```npm install```
-- ```node load.js 10``` to generate 10 random tasks
+The frontend application repo can be found [here](https://github.com/hotandfresh/taskmaster-frontend).
 
-Then, refresh ```http://localhost:5000/api/v1/tasks``` to see the tasks
+## How to Use This API
+
+Open your API development tool, e.g. Postman, HTTPie, to make GET and POST requests use ```http://localhost:5000```, if running locally, or use ```taskmaster.6jwvzatvsi.us-west-2.elasticbeanstalk.com``` with the following endpoints:
 
 ## SNS Service
 From the AWS Lambda console, create two tasks.  One is createSubscriber and the other is sendNotification.  Code used was found [here](https://github.com/codefellows/seattle-java-401d5/tree/master/class-38/demo/sns/lambda)
@@ -39,10 +39,21 @@ Head to sendNotifications, and create the same test with the same information.  
 
 ## End Points
 
-```/api/v1/tasks``` displays a list of tasks, its id, title, description, and status.
+```/api/v1/tasks``` get request that displays a list of tasks, its id, title, description, and status
+
+```/api/v1/tasks/{name}/tasks``` get request that displays tasks for an assignee
+
+```/api/v1/tasks/{id}/state``` post request that will update the status of a status
+
+```/api/v1/tasks/{id}/assign/{assignee}``` put request to update a task to an assignee
+
+```/api/v1/tasks/{id}/images``` post request to upload an image for a task
+
+```/api/v1/tasks/{id}``` get request to dispaly info for a task along with it's image url, if there is one
 
 ## Deployed
 [demo](http://dev-env.ipm3pei5qu.us-west-2.elasticbeanstalk.com/api/v1/customers)
+
 [taskmaster](http://taskmaster.6jwvzatvsi.us-west-2.elasticbeanstalk.com/api/v1/tasks)
 
 ## Acknowledgements
